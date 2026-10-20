@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Activity, Pill, Scale, Heart, Droplet, Sparkles, CalendarCheck, ArrowRight,
 } from "lucide-react";
+import { card } from "@/components/kit";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,7 +46,6 @@ const journey = [
 
 const meds = ["Metformin 1000 mg · BD", "Telmisartan 40 mg · OD", "Atorvastatin 10 mg · HS"];
 
-import { card } from "@/components/kit";
 
 function Index() {
   return (

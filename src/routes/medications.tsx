@@ -13,7 +13,7 @@ const meds: [string, string, string, string, string, Tone][] = [
   ["Vitamin D3", "60,000 IU · weekly", "Vitamin D deficiency", "Jan 2026", "Completed", "ok"],
   ["Pantoprazole", "40 mg · once daily", "Acidity", "Nov 2025", "Stopped", "bad"],
 ];
-const fu = [
+const fu: [string, string, string][] = [
   ["Diabetology review", "Consultation", "Dr. Anita Rao – carry latest HbA1c · due 20 Nov 2026"],
   ["Repeat HbA1c", "Investigation", "Advised at last consultation · due 10 Nov 2026"],
   ["Annual eye screening", "Preventive", "Diabetic retinopathy screening due · due 28 Sep 2026"],
