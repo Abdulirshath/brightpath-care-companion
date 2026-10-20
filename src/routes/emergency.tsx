@@ -24,7 +24,7 @@ function Emergency() {
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-soft lg:col-span-2">
           <div className="bg-hero p-6 text-primary-foreground">
-            <p className="flex justify-between text-xs font-semibold uppercase tracking-widest opacity-85"><span>Emergency card</span><span>ABHA 91-4721-8830-5566</span></p>
+            <p className="grid min-w-0 gap-2 text-xs font-semibold uppercase tracking-widest opacity-85 sm:grid-cols-[minmax(0,1fr)_auto]"><span>Emergency card</span><span className="min-w-0 break-words">ABHA 91-4721-8830-5566</span></p>
             <h2 className="mt-3 text-2xl font-bold">Shivkumar C P</h2>
             <p className="text-sm opacity-85">48 yrs · Male · Bengaluru Urban, Karnataka</p>
           </div>

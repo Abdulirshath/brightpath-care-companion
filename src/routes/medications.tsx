@@ -26,7 +26,23 @@ function Meds() {
       <PageIntro layer="Layer 6 · Layer 7" title="Medicines & follow-up engine">
         A medicine is not a one-time prescription line. The wallet records its life: started, continuing, stopped, changed by the doctor, completed.
       </PageIntro>
-      <div className={`${card} overflow-x-auto p-5`}>
+      <div className={`${card} min-w-0 p-5`}>
+        <div className="divide-y divide-border sm:hidden">
+          {meds.map((m) => (
+            <section key={m[0]} className="py-4 first:pt-0 last:pb-0">
+              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-2">
+                <h2 className="min-w-0 text-sm font-semibold">{m[0]}</h2>
+                <Badge tone={m[5]}>{m[4]}</Badge>
+              </div>
+              <dl className="mt-3 grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-2 text-sm">
+                <dt className="text-muted-foreground">Dose</dt><dd>{m[1]}</dd>
+                <dt className="text-muted-foreground">Purpose</dt><dd>{m[2]}</dd>
+                <dt className="text-muted-foreground">Since</dt><dd>{m[3]}</dd>
+              </dl>
+            </section>
+          ))}
+        </div>
+        <div className="hidden overflow-x-auto sm:block">
         <table className="w-full min-w-[600px] text-left text-sm">
           <thead className="text-xs uppercase text-muted-foreground">
             <tr>{["Medicine", "Dose", "Purpose", "Since", "Status"].map((h) => <th key={h} className="py-2 pr-4 font-semibold">{h}</th>)}</tr>
@@ -40,6 +56,7 @@ function Meds() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
         <div className={`${card} p-5`}>
@@ -47,9 +64,9 @@ function Meds() {
           <ul className="mt-4 space-y-3">
             {fu.map(([t, k, s]) => (
               <li key={t} className="rounded-xl border border-border p-3">
-                <div className="flex items-center justify-between gap-2">
-                  <p className="text-sm font-semibold">{t}</p>
-                  <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] text-accent-foreground">{k}</span>
+                <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-2 sm:flex sm:items-center sm:justify-between">
+                  <p className="min-w-0 text-sm font-semibold">{t}</p>
+                  <span className="shrink-0 rounded-full bg-accent px-2 py-0.5 text-[11px] text-accent-foreground">{k}</span>
                 </div>
                 <p className={`mt-1 text-xs ${s.includes("overdue") ? "text-destructive" : "text-muted-foreground"}`}>{s}</p>
               </li>

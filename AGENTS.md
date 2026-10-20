@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep the shared navigation on its own scrollable row on phones, and show medicine details as stacked records below the small-screen breakpoint; this keeps navigation usable and all medicine fields readable without sideways scrolling.
