@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { AppHeader } from "../components/kit";
 
 function NotFoundComponent() {
   return (
@@ -119,7 +120,12 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="min-h-screen bg-background font-sans text-foreground">
+        <AppHeader />
+        <main className="mx-auto max-w-6xl px-4 py-8">
+          <Outlet />
+        </main>
+      </div>
     </QueryClientProvider>
   );
 }

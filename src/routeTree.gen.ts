@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ConceptRouteImport } from './routes/concept'
+import { Route as EmergencyRouteImport } from './routes/emergency'
+import { Route as FamilyRouteImport } from './routes/family'
+import { Route as MedicationsRouteImport } from './routes/medications'
+import { Route as MetabolicRouteImport } from './routes/metabolic'
+import { Route as TimelineRouteImport } from './routes/timeline'
+import { Route as VitalsRouteImport } from './routes/vitals'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConceptRoute = ConceptRouteImport.update({
+  id: '/concept',
+  path: '/concept',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmergencyRoute = EmergencyRouteImport.update({
+  id: '/emergency',
+  path: '/emergency',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FamilyRoute = FamilyRouteImport.update({
+  id: '/family',
+  path: '/family',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MedicationsRoute = MedicationsRouteImport.update({
+  id: '/medications',
+  path: '/medications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MetabolicRoute = MetabolicRouteImport.update({
+  id: '/metabolic',
+  path: '/metabolic',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TimelineRoute = TimelineRouteImport.update({
+  id: '/timeline',
+  path: '/timeline',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VitalsRoute = VitalsRouteImport.update({
+  id: '/vitals',
+  path: '/vitals',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/concept': typeof ConceptRoute
+  '/emergency': typeof EmergencyRoute
+  '/family': typeof FamilyRoute
+  '/medications': typeof MedicationsRoute
+  '/metabolic': typeof MetabolicRoute
+  '/timeline': typeof TimelineRoute
+  '/vitals': typeof VitalsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/concept': typeof ConceptRoute
+  '/emergency': typeof EmergencyRoute
+  '/family': typeof FamilyRoute
+  '/medications': typeof MedicationsRoute
+  '/metabolic': typeof MetabolicRoute
+  '/timeline': typeof TimelineRoute
+  '/vitals': typeof VitalsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/concept': typeof ConceptRoute
+  '/emergency': typeof EmergencyRoute
+  '/family': typeof FamilyRoute
+  '/medications': typeof MedicationsRoute
+  '/metabolic': typeof MetabolicRoute
+  '/timeline': typeof TimelineRoute
+  '/vitals': typeof VitalsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/concept'
+    | '/emergency'
+    | '/family'
+    | '/medications'
+    | '/metabolic'
+    | '/timeline'
+    | '/vitals'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/concept'
+    | '/emergency'
+    | '/family'
+    | '/medications'
+    | '/metabolic'
+    | '/timeline'
+    | '/vitals'
+  id:
+    | '__root__'
+    | '/'
+    | '/concept'
+    | '/emergency'
+    | '/family'
+    | '/medications'
+    | '/metabolic'
+    | '/timeline'
+    | '/vitals'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ConceptRoute: typeof ConceptRoute
+  EmergencyRoute: typeof EmergencyRoute
+  FamilyRoute: typeof FamilyRoute
+  MedicationsRoute: typeof MedicationsRoute
+  MetabolicRoute: typeof MetabolicRoute
+  TimelineRoute: typeof TimelineRoute
+  VitalsRoute: typeof VitalsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/concept': {
+      id: '/concept'
+      path: '/concept'
+      fullPath: '/concept'
+      preLoaderRoute: typeof ConceptRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/emergency': {
+      id: '/emergency'
+      path: '/emergency'
+      fullPath: '/emergency'
+      preLoaderRoute: typeof EmergencyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/family': {
+      id: '/family'
+      path: '/family'
+      fullPath: '/family'
+      preLoaderRoute: typeof FamilyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/medications': {
+      id: '/medications'
+      path: '/medications'
+      fullPath: '/medications'
+      preLoaderRoute: typeof MedicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/metabolic': {
+      id: '/metabolic'
+      path: '/metabolic'
+      fullPath: '/metabolic'
+      preLoaderRoute: typeof MetabolicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/timeline': {
+      id: '/timeline'
+      path: '/timeline'
+      fullPath: '/timeline'
+      preLoaderRoute: typeof TimelineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vitals': {
+      id: '/vitals'
+      path: '/vitals'
+      fullPath: '/vitals'
+      preLoaderRoute: typeof VitalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ConceptRoute: ConceptRoute,
+  EmergencyRoute: EmergencyRoute,
+  FamilyRoute: FamilyRoute,
+  MedicationsRoute: MedicationsRoute,
+  MetabolicRoute: MetabolicRoute,
+  TimelineRoute: TimelineRoute,
+  VitalsRoute: VitalsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

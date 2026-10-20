@@ -1,7 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  HeartPulse, LayoutGrid, CalendarClock, Activity, FlaskConical, Pill, Users, IdCard,
-  FileText, Scale, Heart, Droplet, Sparkles, CalendarCheck, ArrowRight,
+  Activity, Pill, Scale, Heart, Droplet, Sparkles, CalendarCheck, ArrowRight,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -17,17 +16,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-const nav = [
-  { label: "Dashboard", icon: LayoutGrid, active: true },
-  { label: "Health journey", icon: CalendarClock },
-  { label: "Vitals", icon: Activity },
-  { label: "Metabolic", icon: FlaskConical },
-  { label: "Medicines", icon: Pill },
-  { label: "Family", icon: Users },
-  { label: "Emergency card", icon: IdCard },
-  { label: "Concept outline", icon: FileText },
-];
 
 const vitals = [
   { label: "Weight", icon: Scale, value: "78 kg", note: "BMI 26.4 · rising" },
@@ -57,40 +45,18 @@ const journey = [
 
 const meds = ["Metformin 1000 mg · BD", "Telmisartan 40 mg · OD", "Atorvastatin 10 mg · HS"];
 
-const card = "rounded-2xl border border-border bg-card shadow-soft";
+import { card } from "@/components/kit";
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background font-sans text-foreground">
-      <header className="sticky top-0 z-10 border-b border-border bg-background/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center gap-6 px-4 py-3">
-          <div className="flex shrink-0 items-center gap-2">
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground">
-              <HeartPulse className="h-5 w-5" />
-            </span>
-            <div className="leading-tight">
-              <p className="text-sm font-bold">Digital Health Wallet</p>
-              <p className="text-[11px] text-muted-foreground">ABHA shivkumar@abdm</p>
-            </div>
-          </div>
-          <nav className="flex gap-1 overflow-x-auto text-sm">
-            {nav.map(({ label, icon: Icon, active }) => (
-              <button key={label} className={`flex shrink-0 items-center gap-1.5 rounded-xl px-3 py-2 transition-colors ${active ? "bg-accent font-medium text-accent-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground"}`}>
-                <Icon className="h-4 w-4" />{label}
-              </button>
-            ))}
-          </nav>
-        </div>
-      </header>
-
-      <main className="mx-auto max-w-6xl space-y-6 px-4 py-8">
+    <div className="space-y-6">
         <section className="rounded-3xl bg-hero p-8 text-primary-foreground md:p-10">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] opacity-80">Your health passport for life</p>
           <h1 className="mt-3 max-w-2xl text-3xl font-bold leading-tight md:text-4xl">Namaste, Shivkumar — here is your health status today.</h1>
           <p className="mt-3 text-sm opacity-85">48 yrs · Male · Blood group B+ · ABHA 91-4721-8830-5566</p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <button className="flex items-center gap-2 rounded-full bg-primary-foreground px-4 py-2 text-sm font-semibold text-primary">View my health journey <ArrowRight className="h-4 w-4" /></button>
-            <button className="rounded-full border border-primary-foreground/50 px-4 py-2 text-sm font-semibold hover:bg-primary-foreground/10">Emergency card</button>
+            <Link to="/timeline" className="flex items-center gap-2 rounded-full bg-primary-foreground px-4 py-2 text-sm font-semibold text-primary">View my health journey <ArrowRight className="h-4 w-4" /></Link>
+            <Link to="/emergency" className="rounded-full border border-primary-foreground/50 px-4 py-2 text-sm font-semibold hover:bg-primary-foreground/10">Emergency card</Link>
           </div>
         </section>
 
@@ -160,7 +126,6 @@ function Index() {
             </ul>
           </div>
         </section>
-      </main>
     </div>
   );
 }
