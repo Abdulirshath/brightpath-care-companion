@@ -20,7 +20,7 @@ const nav = [
 export function AppHeader() {
   return (
     <header className="sticky top-0 z-10 border-b border-border bg-background/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center gap-6 px-4 py-3">
+      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] items-center gap-3 px-4 py-3 sm:flex sm:gap-6">
         <Link to="/" className="flex shrink-0 items-center gap-2">
           <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground">
             <HeartPulse className="h-5 w-5" />
@@ -30,7 +30,7 @@ export function AppHeader() {
             <p className="text-[11px] text-muted-foreground">ABHA shivkumar@abdm</p>
           </div>
         </Link>
-        <nav className="flex gap-1 overflow-x-auto text-sm">
+        <nav aria-label="Main navigation" className="flex min-w-0 gap-1 overflow-x-auto text-sm">
           {nav.map(({ to, label, icon: Icon }) => (
             <Link
               key={to}
@@ -69,8 +69,8 @@ const tones: Record<Tone, string> = {
 
 export function Badge({ tone, children }: { tone: Tone; children: ReactNode }) {
   return (
-    <span className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium ${tones[tone]}`}>
-      <span className="h-1.5 w-1.5 rounded-full bg-current" />
+    <span className={`inline-flex max-w-full items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium ${tones[tone]}`}>
+      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
       {children}
     </span>
   );

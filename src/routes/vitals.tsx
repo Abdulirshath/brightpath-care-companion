@@ -27,9 +27,9 @@ function Vitals() {
       <div className="grid gap-4 md:grid-cols-2">
         {charts.map((c) => (
           <div key={c.title} className={`${card} p-5`}>
-            <div className="flex items-center justify-between gap-2">
-              <h2 className="font-bold">{c.title}</h2>
-              <Badge tone={c.tone}>{c.tag}</Badge>
+            <div className="grid min-w-0 gap-2 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
+              <h2 className="min-w-0 font-bold">{c.title}</h2>
+              <div className="min-w-0"><Badge tone={c.tone}>{c.tag}</Badge></div>
             </div>
             <Bars values={c.values} />
             <p className="mt-3 text-xs text-muted-foreground">{c.note}</p>
@@ -39,7 +39,7 @@ function Vitals() {
       <div className={`${card} mt-6 overflow-x-auto p-5`}>
         <h2 className="font-bold">Self-recorded log</h2>
         <p className="mt-1 text-xs text-muted-foreground">Citizens can record vitals at home; providers and health camps push readings through ABDM.</p>
-        <table className="mt-4 w-full text-left text-sm">
+        <table className="mt-4 w-full min-w-[340px] text-left text-sm">
           <thead className="text-xs uppercase text-muted-foreground">
             <tr>{["Month", "Weight", "BP", "Pulse", "SpO₂"].map((h) => <th key={h} className="py-2 pr-4 font-semibold">{h}</th>)}</tr>
           </thead>
